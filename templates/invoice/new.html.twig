@@ -1,0 +1,11 @@
+{# templates/invoice/new.html.twig #}
+
+{% if invoiceCalculations is not empty %}
+    <ul>
+        {% for key, calculationItem in invoiceCalculations.clients %}
+            <li>{{ calculationItem }} : {{ invoiceCalculations.totals[key] }} {{ invoiceCalculations.outputCurrency }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    {{ form(form) }}
+{% endif %}
